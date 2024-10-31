@@ -1,6 +1,6 @@
 ﻿namespace InformationSecurityLab3
 {
-    partial class Form1
+    partial class FormMain
     {
         /// <summary>
         /// Обязательная переменная конструктора.
@@ -38,9 +38,10 @@
             // comboBoxUserPick
             // 
             this.comboBoxUserPick.FormattingEnabled = true;
-            this.comboBoxUserPick.Location = new System.Drawing.Point(212, 11);
+            this.comboBoxUserPick.Location = new System.Drawing.Point(159, 9);
+            this.comboBoxUserPick.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.comboBoxUserPick.Name = "comboBoxUserPick";
-            this.comboBoxUserPick.Size = new System.Drawing.Size(135, 24);
+            this.comboBoxUserPick.Size = new System.Drawing.Size(102, 21);
             this.comboBoxUserPick.TabIndex = 0;
             this.comboBoxUserPick.SelectedIndexChanged += new System.EventHandler(this.comboBoxUserPick_SelectedIndexChanged);
             // 
@@ -48,50 +49,55 @@
             // 
             this.labelUser.AutoSize = true;
             this.labelUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelUser.Location = new System.Drawing.Point(12, 9);
+            this.labelUser.Location = new System.Drawing.Point(9, 7);
+            this.labelUser.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelUser.Name = "labelUser";
-            this.labelUser.Size = new System.Drawing.Size(158, 25);
+            this.labelUser.Size = new System.Drawing.Size(133, 20);
             this.labelUser.TabIndex = 1;
             this.labelUser.Text = "Пользователь";
             // 
             // buttonUserEdit
             // 
-            this.buttonUserEdit.Location = new System.Drawing.Point(415, 11);
+            this.buttonUserEdit.Location = new System.Drawing.Point(311, 9);
+            this.buttonUserEdit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonUserEdit.Name = "buttonUserEdit";
-            this.buttonUserEdit.Size = new System.Drawing.Size(225, 24);
+            this.buttonUserEdit.Size = new System.Drawing.Size(169, 20);
             this.buttonUserEdit.TabIndex = 2;
             this.buttonUserEdit.Text = "Редактировать пользователя";
             this.buttonUserEdit.UseVisualStyleBackColor = true;
+            this.buttonUserEdit.Click += new System.EventHandler(this.buttonUserEdit_Click);
             // 
             // listBoxObject
             // 
             this.listBoxObject.FormattingEnabled = true;
-            this.listBoxObject.ItemHeight = 16;
-            this.listBoxObject.Location = new System.Drawing.Point(17, 48);
+            this.listBoxObject.Location = new System.Drawing.Point(13, 39);
+            this.listBoxObject.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.listBoxObject.Name = "listBoxObject";
-            this.listBoxObject.Size = new System.Drawing.Size(330, 260);
+            this.listBoxObject.Size = new System.Drawing.Size(248, 212);
             this.listBoxObject.TabIndex = 3;
             this.listBoxObject.SelectedIndexChanged += new System.EventHandler(this.listBoxObject_SelectedIndexChanged);
             // 
             // textBoxObjectEdit
             // 
-            this.textBoxObjectEdit.Location = new System.Drawing.Point(355, 48);
+            this.textBoxObjectEdit.Location = new System.Drawing.Point(266, 39);
+            this.textBoxObjectEdit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBoxObjectEdit.Multiline = true;
             this.textBoxObjectEdit.Name = "textBoxObjectEdit";
-            this.textBoxObjectEdit.Size = new System.Drawing.Size(330, 260);
+            this.textBoxObjectEdit.Size = new System.Drawing.Size(248, 212);
             this.textBoxObjectEdit.TabIndex = 4;
             this.textBoxObjectEdit.TextChanged += new System.EventHandler(this.textBoxObjectEdit_TextChanged);
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(705, 322);
+            this.ClientSize = new System.Drawing.Size(529, 262);
             this.Controls.Add(this.textBoxObjectEdit);
             this.Controls.Add(this.listBoxObject);
             this.Controls.Add(this.buttonUserEdit);
             this.Controls.Add(this.labelUser);
             this.Controls.Add(this.comboBoxUserPick);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Form1";
             this.Text = "Матрица доступа (Выбор)";
             this.ResumeLayout(false);

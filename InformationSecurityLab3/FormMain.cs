@@ -10,16 +10,16 @@ using System.Windows.Forms;
 
 namespace InformationSecurityLab3
 {
-    public partial class Form1 : Form
+    public partial class FormMain : Form
     {
-        List<string> users;
-        List<Text> objects;
-        List<List<int>> accesses;
+        private List<string> users;
+        private List<Text> objects;
+        private List<List<int>> accesses;
 
-        int PickedUser;
-        int PickedObject = -1;
+        private int PickedUser;
+        private int PickedObject = -1;
 
-        public Form1()
+        public FormMain()
         {
             InitializeComponent();
             MatrixInit();
@@ -54,21 +54,32 @@ namespace InformationSecurityLab3
         {
             if (accesses[PickedUser][PickedObject + 1] == 0)
             {
-                textBoxObjectEdit.Text = "";
+                textBoxObjectEdit.Visible = false;
             } else if (accesses[PickedUser][PickedObject + 1] == 1)
             {
+                textBoxObjectEdit.Visible = true;
                 textBoxObjectEdit.Text = objects[PickedObject].GetText();
-                textBoxObjectEdit.Enabled = false;
+                textBoxObjectEdit.ReadOnly = true;
             } else if (accesses[PickedUser][PickedObject + 1] == 2)
             {
+                textBoxObjectEdit.Visible = true;
                 textBoxObjectEdit.Text = objects[PickedObject].GetText();
-                textBoxObjectEdit.Enabled = true;
+                textBoxObjectEdit.ReadOnly = false;
             }
         }
 
         private void comboBoxUserPick_SelectedIndexChanged(object sender, EventArgs e)
         {
             PickedUser = comboBoxUserPick.SelectedIndex;
+            if (accesses[PickedUser][0] == 0)
+            {
+                buttonUserEdit.Enabled = false;
+            }
+            else if (accesses[PickedUser][0] == 1)
+            {
+                buttonUserEdit.Enabled = true;
+            }
+
             if (PickedObject != -1)
                 UpdateText();
         }
@@ -82,6 +93,12 @@ namespace InformationSecurityLab3
         private void textBoxObjectEdit_TextChanged(object sender, EventArgs e)
         {
             objects[PickedObject].SetText(textBoxObjectEdit.Text);
+        }
+
+        private void buttonUserEdit_Click(object sender, EventArgs e)
+        {
+            FormEdit formEdit = new FormEdit(this); //Переделать
+            formEdit.ShowDialog(this);
         }
     }
 
