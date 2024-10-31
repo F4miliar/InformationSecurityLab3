@@ -12,12 +12,12 @@ namespace InformationSecurityLab3
 {
     public partial class FormMain : Form
     {
-        private List<string> users;
-        private List<Text> objects;
-        private List<List<int>> accesses;
+        private List<string> _users;
+        private List<Text> _objects;
+        private List<List<int>> _accesses;
 
-        private int PickedUser;
-        private int PickedObject = -1;
+        private int pickedUser;
+        private int pickedObject = -1;
 
         public FormMain()
         {
@@ -28,12 +28,12 @@ namespace InformationSecurityLab3
 
         private void MatrixInit()
         {
-            users = new List<string> { "Администратор", "Пользователь", "Читатель", "Редактор" };
-            objects = new List<Text> {
+            _users = new List<string> { "Администратор", "Пользователь", "Читатель", "Редактор" };
+            _objects = new List<Text> {
                 new Text("Объект1", "Текст первого объекта"),
                 new Text("Объект2", "Текст второго объекта"),
                 new Text("Объект3", "Текст третьего объекта") };
-            accesses = new List<List<int>> { 
+            _accesses = new List<List<int>> { 
                 new List<int> { 1, 0, 1, 2 },
                 new List<int> { 0, 0, 0, 0 },
                 new List<int> { 0, 1, 1, 1 },
@@ -43,61 +43,61 @@ namespace InformationSecurityLab3
 
         private void UIElementsUpdate()
         {
-            foreach (string user in users)
+            foreach (string user in _users)
                 comboBoxUserPick.Items.Add(user);
-            foreach (Text text in objects)
+            foreach (Text text in _objects)
                 listBoxObject.Items.Add(text.GetName());
             comboBoxUserPick.SelectedIndex = 0;
         }
 
         private void UpdateText()
         {
-            if (accesses[PickedUser][PickedObject + 1] == 0)
+            if (_accesses[pickedUser][pickedObject + 1] == 0)
             {
                 textBoxObjectEdit.Visible = false;
-            } else if (accesses[PickedUser][PickedObject + 1] == 1)
+            } else if (_accesses[pickedUser][pickedObject + 1] == 1)
             {
                 textBoxObjectEdit.Visible = true;
-                textBoxObjectEdit.Text = objects[PickedObject].GetText();
+                textBoxObjectEdit.Text = _objects[pickedObject].GetText();
                 textBoxObjectEdit.ReadOnly = true;
-            } else if (accesses[PickedUser][PickedObject + 1] == 2)
+            } else if (_accesses[pickedUser][pickedObject + 1] == 2)
             {
                 textBoxObjectEdit.Visible = true;
-                textBoxObjectEdit.Text = objects[PickedObject].GetText();
+                textBoxObjectEdit.Text = _objects[pickedObject].GetText();
                 textBoxObjectEdit.ReadOnly = false;
             }
         }
 
         private void comboBoxUserPick_SelectedIndexChanged(object sender, EventArgs e)
         {
-            PickedUser = comboBoxUserPick.SelectedIndex;
-            if (accesses[PickedUser][0] == 0)
+            pickedUser = comboBoxUserPick.SelectedIndex;
+            if (_accesses[pickedUser][0] == 0)
             {
                 buttonUserEdit.Enabled = false;
             }
-            else if (accesses[PickedUser][0] == 1)
+            else if (_accesses[pickedUser][0] == 1)
             {
                 buttonUserEdit.Enabled = true;
             }
 
-            if (PickedObject != -1)
+            if (pickedObject != -1)
                 UpdateText();
         }
 
         private void listBoxObject_SelectedIndexChanged(object sender, EventArgs e)
         {
-            PickedObject = listBoxObject.SelectedIndex;
+            pickedObject = listBoxObject.SelectedIndex;
             UpdateText();
         }
 
         private void textBoxObjectEdit_TextChanged(object sender, EventArgs e)
         {
-            objects[PickedObject].SetText(textBoxObjectEdit.Text);
+            _objects[pickedObject].SetText(textBoxObjectEdit.Text);
         }
 
         private void buttonUserEdit_Click(object sender, EventArgs e)
         {
-            FormEdit formEdit = new FormEdit(this); //Переделать
+            FormEdit formEdit = new FormEdit(_users, _objects, _accesses);
             formEdit.ShowDialog(this);
         }
     }
