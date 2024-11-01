@@ -103,6 +103,7 @@
             this.dataGridViewAccesses.Location = new System.Drawing.Point(13, 101);
             this.dataGridViewAccesses.MultiSelect = false;
             this.dataGridViewAccesses.Name = "dataGridViewAccesses";
+            this.dataGridViewAccesses.ReadOnly = true;
             this.dataGridViewAccesses.RowHeadersVisible = false;
             this.dataGridViewAccesses.RowHeadersWidth = 51;
             this.dataGridViewAccesses.Size = new System.Drawing.Size(225, 150);

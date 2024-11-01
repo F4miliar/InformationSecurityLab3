@@ -43,11 +43,15 @@ namespace InformationSecurityLab3
 
         private void UIElementsUpdate()
         {
+            comboBoxUserPick.Items.Clear();
+            listBoxObject.Items.Clear();
+
             foreach (string user in _users)
                 comboBoxUserPick.Items.Add(user);
             foreach (Text text in _objects)
                 listBoxObject.Items.Add(text.GetName());
-            comboBoxUserPick.SelectedIndex = 0;
+
+            comboBoxUserPick.SelectedIndex = pickedUser = 0;
         }
 
         private void UpdateText()
@@ -99,7 +103,16 @@ namespace InformationSecurityLab3
         {
             FormEdit formEdit = new FormEdit(_users, _objects, _accesses);
             formEdit.ShowDialog(this);
+            UpdateLists(formEdit);
+            UIElementsUpdate();
         }
+
+        private void UpdateLists(FormEdit formEdit)
+        {
+            _users = formEdit.GetUsers();
+            _objects = formEdit.GetObjects();
+            _accesses = formEdit.GetAccesses();
+        } 
     }
 
     public class Text

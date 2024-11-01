@@ -19,8 +19,8 @@ namespace InformationSecurityLab3
         private List<Text> _objects;
         private List<List<int>> _accesses;
 
-        private int pickedUser = 0;
-        private int pickedObject = 0;
+        private int pickedUser;
+        private int pickedObject;
 
         public FormEdit(List<string> users, List<Text> objects, List<List<int>> accesses)
         {
@@ -64,11 +64,12 @@ namespace InformationSecurityLab3
                     dataGridViewAccesses.Rows[pointer].Cells[i].Value = list[i];
                 pointer++;
             }
+            dataGridViewAccesses.CurrentCell = dataGridViewAccesses.Rows[pickedUser].Cells[pickedObject];
         }
 
         private void buttonUserAdd_Click(object sender, EventArgs e)
         {
-            if(textBoxUserName.Text != null)
+            if(textBoxUserName.Text != "")
             {
                 _users.Add(textBoxUserName.Text);
                 List<int> list = new List<int>(_objects.Count + 1);
@@ -76,17 +77,19 @@ namespace InformationSecurityLab3
                 for (int i = 0; i < list.Capacity; i++)
                     _accesses[_accesses.Count - 1].Add(0);
                 UIElementsUpdate();
+                textBoxUserName.Text = "";
             }
         }
 
         private void buttonObjectAdd_Click(object sender, EventArgs e)
         {
-            if (textBoxObjectName.Text != null)
+            if (textBoxObjectName.Text != "")
             {
                 _objects.Add(new Text(textBoxObjectName.Text, ""));
                 foreach (List<int> list in _accesses)
                     list.Add(0);
                 UIElementsUpdate();
+                textBoxObjectName.Text = "";
             }
         }
 
@@ -97,7 +100,7 @@ namespace InformationSecurityLab3
 
         private void comboBoxObjectPick_SelectedIndexChanged(object sender, EventArgs e)
         {
-            pickedObject = comboBoxObjectPick.SelectedIndex;
+            pickedObject = comboBoxObjectPick.SelectedIndex + 1;
         }
 
         private void buttonUserDelete_Click(object sender, EventArgs e)
@@ -116,22 +119,41 @@ namespace InformationSecurityLab3
             if (_objects.Count == 0)
                 return;
 
-            _objects.Remove(_objects.ElementAt(pickedObject));
+            _objects.Remove(_objects.ElementAt(pickedObject - 1));
             foreach(List<int> list in _accesses)
-                list.Remove(list.ElementAt(pickedObject));
+                list.Remove(list.ElementAt(pickedObject - 1));
             comboBoxObjectPick.SelectedIndex = 0;
             UIElementsUpdate();
         }
 
         private void buttonAccessAdd_Click(object sender, EventArgs e)
         {
-            _accesses[pickedUser][pickedObject + 1] = (int)numericUpDownAccessPick.Value;
+            if (pickedObject == 0 && (int)numericUpDownAccessPick.Value <= 1)
+            {
+                _accesses[pickedUser][pickedObject] = (int)numericUpDownAccessPick.Value;
+            }
+            else if (pickedObject != 0)
+            {
+                _accesses[pickedUser][pickedObject] = (int)numericUpDownAccessPick.Value;
+            }
             UIElementsUpdate();
+            dataGridViewAccesses.Select();
         }
 
-        private void dataGridViewAccesses_CellClick(object sender, DataGridViewCellEventArgs e) //Обновить picked при нажатии ячейки
+        private void dataGridViewAccesses_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            pickedUser = dataGridViewAccesses.SelectedCells[0].RowIndex;
+            pickedObject = dataGridViewAccesses.SelectedCells[0].ColumnIndex;
 
+            comboBoxUserPick.SelectedIndex = pickedUser;
+            if(pickedObject != 0)
+                comboBoxObjectPick.SelectedIndex = pickedObject - 1;
         }
+
+        public List<string> GetUsers() => _users;
+
+        public List<Text> GetObjects() => _objects;
+
+        public List<List<int>> GetAccesses() => _accesses;
     }
 }
