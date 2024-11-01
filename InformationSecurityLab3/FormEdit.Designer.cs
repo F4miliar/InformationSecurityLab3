@@ -47,28 +47,25 @@
             // 
             // textBoxUserName
             // 
-            this.textBoxUserName.Location = new System.Drawing.Point(16, 39);
-            this.textBoxUserName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxUserName.Location = new System.Drawing.Point(12, 32);
             this.textBoxUserName.Name = "textBoxUserName";
-            this.textBoxUserName.Size = new System.Drawing.Size(132, 22);
+            this.textBoxUserName.Size = new System.Drawing.Size(100, 20);
             this.textBoxUserName.TabIndex = 0;
             // 
             // labelUserName
             // 
             this.labelUserName.AutoSize = true;
-            this.labelUserName.Location = new System.Drawing.Point(12, 11);
-            this.labelUserName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelUserName.Location = new System.Drawing.Point(9, 9);
             this.labelUserName.Name = "labelUserName";
-            this.labelUserName.Size = new System.Drawing.Size(129, 16);
+            this.labelUserName.Size = new System.Drawing.Size(103, 13);
             this.labelUserName.TabIndex = 1;
             this.labelUserName.Text = "Имя пользователя";
             // 
             // buttonUserAdd
             // 
-            this.buttonUserAdd.Location = new System.Drawing.Point(17, 73);
-            this.buttonUserAdd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonUserAdd.Location = new System.Drawing.Point(13, 59);
             this.buttonUserAdd.Name = "buttonUserAdd";
-            this.buttonUserAdd.Size = new System.Drawing.Size(132, 28);
+            this.buttonUserAdd.Size = new System.Drawing.Size(99, 23);
             this.buttonUserAdd.TabIndex = 2;
             this.buttonUserAdd.Text = "Добавить";
             this.buttonUserAdd.UseVisualStyleBackColor = true;
@@ -76,10 +73,9 @@
             // 
             // buttonObjectAdd
             // 
-            this.buttonObjectAdd.Location = new System.Drawing.Point(185, 73);
-            this.buttonObjectAdd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonObjectAdd.Location = new System.Drawing.Point(139, 59);
             this.buttonObjectAdd.Name = "buttonObjectAdd";
-            this.buttonObjectAdd.Size = new System.Drawing.Size(132, 28);
+            this.buttonObjectAdd.Size = new System.Drawing.Size(99, 23);
             this.buttonObjectAdd.TabIndex = 5;
             this.buttonObjectAdd.Text = "Добавить";
             this.buttonObjectAdd.UseVisualStyleBackColor = true;
@@ -88,57 +84,54 @@
             // labelObjectName
             // 
             this.labelObjectName.AutoSize = true;
-            this.labelObjectName.Location = new System.Drawing.Point(180, 11);
-            this.labelObjectName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelObjectName.Location = new System.Drawing.Point(135, 9);
             this.labelObjectName.Name = "labelObjectName";
-            this.labelObjectName.Size = new System.Drawing.Size(119, 16);
+            this.labelObjectName.Size = new System.Drawing.Size(92, 13);
             this.labelObjectName.TabIndex = 4;
             this.labelObjectName.Text = "Название файла";
             // 
             // textBoxObjectName
             // 
-            this.textBoxObjectName.Location = new System.Drawing.Point(184, 39);
-            this.textBoxObjectName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxObjectName.Location = new System.Drawing.Point(138, 32);
             this.textBoxObjectName.Name = "textBoxObjectName";
-            this.textBoxObjectName.Size = new System.Drawing.Size(132, 22);
+            this.textBoxObjectName.Size = new System.Drawing.Size(100, 20);
             this.textBoxObjectName.TabIndex = 3;
             // 
             // dataGridViewAccesses
             // 
             this.dataGridViewAccesses.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewAccesses.Location = new System.Drawing.Point(17, 124);
-            this.dataGridViewAccesses.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dataGridViewAccesses.Location = new System.Drawing.Point(13, 101);
             this.dataGridViewAccesses.MultiSelect = false;
             this.dataGridViewAccesses.Name = "dataGridViewAccesses";
             this.dataGridViewAccesses.RowHeadersVisible = false;
             this.dataGridViewAccesses.RowHeadersWidth = 51;
-            this.dataGridViewAccesses.Size = new System.Drawing.Size(300, 185);
+            this.dataGridViewAccesses.Size = new System.Drawing.Size(225, 150);
             this.dataGridViewAccesses.TabIndex = 6;
+            this.dataGridViewAccesses.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewAccesses_CellClick);
             // 
             // comboBoxUserPick
             // 
             this.comboBoxUserPick.FormattingEnabled = true;
-            this.comboBoxUserPick.Location = new System.Drawing.Point(17, 318);
-            this.comboBoxUserPick.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboBoxUserPick.Location = new System.Drawing.Point(13, 258);
             this.comboBoxUserPick.Name = "comboBoxUserPick";
-            this.comboBoxUserPick.Size = new System.Drawing.Size(131, 24);
+            this.comboBoxUserPick.Size = new System.Drawing.Size(99, 21);
             this.comboBoxUserPick.TabIndex = 7;
+            this.comboBoxUserPick.SelectedIndexChanged += new System.EventHandler(this.comboBoxUserPick_SelectedIndexChanged);
             // 
             // comboBoxObjectPick
             // 
             this.comboBoxObjectPick.FormattingEnabled = true;
-            this.comboBoxObjectPick.Location = new System.Drawing.Point(184, 316);
-            this.comboBoxObjectPick.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboBoxObjectPick.Location = new System.Drawing.Point(138, 257);
             this.comboBoxObjectPick.Name = "comboBoxObjectPick";
-            this.comboBoxObjectPick.Size = new System.Drawing.Size(131, 24);
+            this.comboBoxObjectPick.Size = new System.Drawing.Size(99, 21);
             this.comboBoxObjectPick.TabIndex = 8;
+            this.comboBoxObjectPick.SelectedIndexChanged += new System.EventHandler(this.comboBoxObjectPick_SelectedIndexChanged);
             // 
             // buttonUserDelete
             // 
-            this.buttonUserDelete.Location = new System.Drawing.Point(16, 351);
-            this.buttonUserDelete.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonUserDelete.Location = new System.Drawing.Point(12, 285);
             this.buttonUserDelete.Name = "buttonUserDelete";
-            this.buttonUserDelete.Size = new System.Drawing.Size(132, 28);
+            this.buttonUserDelete.Size = new System.Drawing.Size(99, 23);
             this.buttonUserDelete.TabIndex = 9;
             this.buttonUserDelete.Text = "Удалить";
             this.buttonUserDelete.UseVisualStyleBackColor = true;
@@ -146,10 +139,9 @@
             // 
             // buttonObjectDelete
             // 
-            this.buttonObjectDelete.Location = new System.Drawing.Point(184, 351);
-            this.buttonObjectDelete.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonObjectDelete.Location = new System.Drawing.Point(138, 285);
             this.buttonObjectDelete.Name = "buttonObjectDelete";
-            this.buttonObjectDelete.Size = new System.Drawing.Size(132, 28);
+            this.buttonObjectDelete.Size = new System.Drawing.Size(99, 23);
             this.buttonObjectDelete.TabIndex = 10;
             this.buttonObjectDelete.Text = "Удалить";
             this.buttonObjectDelete.UseVisualStyleBackColor = true;
@@ -157,23 +149,21 @@
             // 
             // numericUpDownAccessPick
             // 
-            this.numericUpDownAccessPick.Location = new System.Drawing.Point(17, 386);
-            this.numericUpDownAccessPick.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.numericUpDownAccessPick.Location = new System.Drawing.Point(13, 314);
             this.numericUpDownAccessPick.Maximum = new decimal(new int[] {
             2,
             0,
             0,
             0});
             this.numericUpDownAccessPick.Name = "numericUpDownAccessPick";
-            this.numericUpDownAccessPick.Size = new System.Drawing.Size(68, 22);
+            this.numericUpDownAccessPick.Size = new System.Drawing.Size(51, 20);
             this.numericUpDownAccessPick.TabIndex = 11;
             // 
             // buttonAccessAdd
             // 
-            this.buttonAccessAdd.Location = new System.Drawing.Point(93, 386);
-            this.buttonAccessAdd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonAccessAdd.Location = new System.Drawing.Point(70, 314);
             this.buttonAccessAdd.Name = "buttonAccessAdd";
-            this.buttonAccessAdd.Size = new System.Drawing.Size(223, 28);
+            this.buttonAccessAdd.Size = new System.Drawing.Size(167, 23);
             this.buttonAccessAdd.TabIndex = 12;
             this.buttonAccessAdd.Text = "Добавить права";
             this.buttonAccessAdd.UseVisualStyleBackColor = true;
@@ -181,9 +171,9 @@
             // 
             // FormEdit
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(332, 423);
+            this.ClientSize = new System.Drawing.Size(249, 344);
             this.Controls.Add(this.buttonAccessAdd);
             this.Controls.Add(this.numericUpDownAccessPick);
             this.Controls.Add(this.buttonObjectDelete);
@@ -197,7 +187,6 @@
             this.Controls.Add(this.buttonUserAdd);
             this.Controls.Add(this.labelUserName);
             this.Controls.Add(this.textBoxUserName);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "FormEdit";
             this.Text = "FormEdit";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAccesses)).EndInit();
